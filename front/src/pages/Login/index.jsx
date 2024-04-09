@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./login.css";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -33,29 +34,48 @@ function Login() {
     console.log(formData);
   };
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+    <div className="login flex">
+      <div className="login-card">
+        <div className="imge flex-center">
+          <img src="insta.PNG" alt="logo" />
+        </div>
+        <form onSubmit={handleSubmit} className="flex column ">
+          <div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email..."
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <div className="orr flex-center">
+          <span className="line"></span>
+          <span className="or">OR</span>
+          <span className="line"></span>
         </div>
         <div>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
+          <i className="fa-brands fa-square-facebook"></i>{" "}
+          <span className="by-fb">Login with Facebook</span>
         </div>
-        <button type="submit">Login</button>
-      </form>
+        <div className="flex go-signup">
+          <p>Don't have an account?</p>
+          <span>
+            <Link to={"/signup"}>Signup</Link>
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

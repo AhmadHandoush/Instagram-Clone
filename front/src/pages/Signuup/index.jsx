@@ -75,7 +75,7 @@ function Signup() {
           </p>
           <button type="submit">Signup</button>
         </form>
-        <p className="login">
+        <p className="to-login">
           Have an account? <Link to={"/"}>Login</Link>
         </p>
       </div>

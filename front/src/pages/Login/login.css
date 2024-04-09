@@ -1,0 +1,129 @@
+:root {
+  --main-color: #0066b2;
+  --border-color: #ccc;
+  --bg-grey: #5a5a5a;
+  --bg-white: #ffffff;
+  --bg-hover: #f7f7f7;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: var(--main-color);
+  color: var(--bg-white);
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.t-center {
+  text-align: center;
+}
+.flex {
+  display: flex;
+}
+.flex-items {
+  display: flex;
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.rounded {
+  border-radius: 6px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: sans-serif;
+}
+.column {
+  flex-direction: column;
+}
+.login {
+  height: 100vh;
+  justify-content: center;
+  padding: 20px;
+}
+.login-card .imge {
+  margin-bottom: 20px;
+}
+.login-card {
+  background-color: var(--bg-white);
+  border: 1px solid #d3d3d3;
+  padding: 20px 40px;
+  width: 350px;
+  height: fit-content;
+}
+.login-card form {
+  gap: 20px;
+}
+.login-card form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #d3d3d3;
+  outline: none;
+  background-color: #d7d7d7;
+}
+.login-card button {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--main-color);
+  color: var(--bg-white);
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.or {
+  padding: 0 20px;
+  font-weight: bold;
+  color: var(--bg-grey);
+}
+.orr {
+  margin: 20px 0;
+}
+.line {
+  height: 1px;
+  background-color: var(--bg-grey);
+  width: 100px;
+  text-align: center;
+}
+.login-card div i {
+  color: var(--main-color);
+}
+.login-card .by-fb {
+  font-weight: bold;
+  color: var(--bg-grey);
+}
+.login-card .go-signup {
+  margin-top: 20px;
+}
+.login-card .go-signup p {
+  font-size: 14px;
+}
+.login-card .go-signup a {
+  font-weight: bold;
+  color: var(--main-color);
+}
