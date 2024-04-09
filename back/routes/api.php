@@ -33,7 +33,7 @@ Route::group(['middleware' => "isAdmin"], function () {
         Route::group(['middleware' => 'auth:api'], function () {
             // Route::get('/users', [DemoController::class, 'getAllUsers']);
             Route::get('user/{id}',[ProfileController::class,'get_user']);
-            Route::get('add-post',[PostController::class,'add_post']);
+            Route::post('add-post',[PostController::class,'add_post']);
     });
 
     // other users routes

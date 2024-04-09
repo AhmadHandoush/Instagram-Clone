@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Faker\Core\File;
 
 class AuthController extends Controller
 {
@@ -43,6 +44,7 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -54,6 +56,16 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        //  if ($request->hasFile('profile_image')) {
+        //     $file = $request->file('profile_image');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $extension;
+        //     $file->move(public_path('/profile_pictures/'), $filename);
+        // }
+        // if (File::exists(public_path('/profile_picutes') . $user->profile_picture)) {
+        //     File::delete((public_path('/profile_picutes') . $user->profile_picture));
+        // }
+
 
         $token = Auth::login($user);
         return response()->json([

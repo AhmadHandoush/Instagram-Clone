@@ -14,12 +14,14 @@ class PostController extends Controller
 
     }
    public function add_post(Request $req){
+
     $req->validate([
         'caption' => 'required|string|max:255',
     ]);
     $post =new Post();
     $post->caption=$req->caption;
     $post->user_id = Auth::id();
+    $post->image_url=$req->image_url;
     $post->save();
     return response()->json(['message' => 'Post created successfully'], 201);
 
