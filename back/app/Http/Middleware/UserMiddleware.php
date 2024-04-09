@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,13 +18,11 @@ class AdminMiddleware
     {
         if(Auth::check())
         {
-            if(Auth::user()->role=='admin'){
+            if(Auth::user()->role=='user'){
                 return $next($request);;
             }
             abort(403);
         }
         abort(401);
     }
-
-
 }
