@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -6,10 +7,10 @@ function Signup() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -21,6 +22,7 @@ function Signup() {
     });
 
     console.log(formData);
+    navigate("/");
   };
   return (
     <div>
@@ -30,7 +32,7 @@ function Signup() {
           <label>Username</label>
           <input
             type="text"
-            name="username"
+            name="name"
             value={formData.name}
             onChange={handleChange}
           />
