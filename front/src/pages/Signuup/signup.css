@@ -1,0 +1,124 @@
+:root {
+  --main-color: #0066b2;
+  --border-color: #ccc;
+  --bg-grey: #5a5a5a;
+  --bg-white: #ffffff;
+  --bg-hover: #f7f7f7;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: var(--main-color);
+  color: var(--bg-white);
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.t-center {
+  text-align: center;
+}
+.flex {
+  display: flex;
+}
+.flex-items {
+  display: flex;
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.rounded {
+  border-radius: 6px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: sans-serif;
+}
+.signup {
+  height: 100vh;
+}
+.column {
+  flex-direction: column;
+}
+.signup-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--bg-grey);
+  padding: 40px;
+  width: 300px;
+}
+.signup-card .img {
+  margin-bottom: 20px;
+}
+.signup-card .top-p {
+  line-height: 1.4;
+  font-size: 18px;
+}
+.or {
+  padding: 0 20px;
+  font-weight: bold;
+  color: var(--bg-grey);
+}
+.orr {
+  margin: 20px 0;
+}
+.line {
+  height: 1px;
+  background-color: var(--bg-grey);
+  width: 100px;
+  text-align: center;
+}
+.signup .signup-card form {
+  gap: 20px;
+}
+.signup .signup-card form input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid var(--bg-grey);
+  outline: none;
+  background-color: #d7d7d7;
+}
+.signup .signup-card .learn {
+  font-weight: bold;
+  color: var(--main-color);
+}
+.people {
+  font-size: 12px;
+}
+.signup button {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--main-color);
+  color: var(--bg-white);
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.signup .signup-card .login a {
+  font-weight: bold;
+  color: var(--main-color);
+}

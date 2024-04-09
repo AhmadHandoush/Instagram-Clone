@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./signup.css";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -27,38 +28,57 @@ function Signup() {
     navigate("/");
   };
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
+    <div className="signup flex-center">
+      <div className="signup-card">
+        <div className="img flex-center">
+          <img src="insta.PNG" alt="logo" />
         </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+        <p className="top-p">
+          Sign up to see photos and videos from your friends.
+        </p>
+        <div className="orr flex-center">
+          <span className="line"></span>
+          <span className="or">OR</span>
+          <span className="line"></span>
         </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
+        <form onSubmit={handleSubmit} className="form flex column">
+          <div>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Username"
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email..."
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+          </div>
+          <p className="people">
+            People who use our service may have uploaded your contact
+            information to Instagram. <span className="learn">Learn more</span>
+          </p>
+          <button type="submit">Signup</button>
+        </form>
+        <p className="login">
+          Have an account? <Link to={"/"}>Login</Link>
+        </p>
+      </div>
     </div>
   );
 }
