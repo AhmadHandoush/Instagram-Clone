@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,13 +15,21 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://127.0.0.1:8000/api/login", {
+    const response = await fetch("http://127.0.0.1:8000/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
       body: JSON.stringify(formData),
     });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const responseData = await response.json();
 
+    if (responseData.status === "success") {
+      localStorage.setItem("token", responseData.authorisation.token);
+    }
+    console.log(responseData);
+    navigate("/home");
     console.log(formData);
   };
   return (
