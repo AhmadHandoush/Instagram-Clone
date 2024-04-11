@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Faker\Core\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -34,5 +35,10 @@ class ProfileController extends Controller
         $user->update($request->all());
         return response()->json($user);
 
+    }
+    public function getUser(Request $request)
+    {
+        $user = Auth::user(); // Get the authenticated user
+        return response()->json($user);
     }
 }

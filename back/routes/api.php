@@ -33,6 +33,7 @@ Route::controller(AuthController::class)->group(function () {
             Route::get('user/{id}',[ProfileController::class,'get_user']);
             Route::post('add-post',[PostController::class,'add_post']);
             Route::post('update/{id}',[ProfileController::class,'update_user']);
+            Route::post('user',[ProfileController::class,'getUser']);
     });
 
     // other users routes

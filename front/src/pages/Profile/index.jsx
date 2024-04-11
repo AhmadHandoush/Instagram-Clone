@@ -4,7 +4,7 @@ import axios from "axios";
 import "./profile.css";
 function Profile() {
   const [user, setUser] = useState({});
-  const {id,name,email,picture=user;
+  const { id, name, email, picture } = user;
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -28,7 +28,7 @@ function Profile() {
     e.preventDefault();
 
     let data = new FormData();
-    data.append("name", name);
+    data.append("name", username);
 
     data.append("profile_image", imageData);
     axios({
@@ -71,11 +71,11 @@ function Profile() {
         <div className="info flex column">
           <div className="name">
             <h3>USernam:</h3>
-            <p>ahmad</p>
+            <p>{name}</p>
           </div>
           <div className="email">
             <h3>EMail:</h3>
-            <p>ahamd@gmil.com</p>
+            <p>{email}</p>
           </div>
           <div className="bio">
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -89,7 +89,7 @@ function Profile() {
             placeholder="Username"
             name="name"
             value={username}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="im"> + Change image</label>
           <input
@@ -103,6 +103,7 @@ function Profile() {
           />
           <button type="submit">Edit</button>
         </form>
+        <p>hello im ahamd heamdklnsljh</p>
       </div>
     </div>
   );
