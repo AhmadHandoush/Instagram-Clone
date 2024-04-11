@@ -25,9 +25,7 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
-Route::group(['middleware' => "isAdmin"], function () {
-    // some admin specific api
-});
+
 
     Route::group(["middleware" => "isUser"], function () {
         Route::group(['middleware' => 'auth:api'], function () {

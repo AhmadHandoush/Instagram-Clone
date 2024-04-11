@@ -28,6 +28,7 @@ function Login() {
 
     if (responseData.status === "success") {
       localStorage.setItem("token", responseData.authorisation.token);
+      setFormData({ email: "", password: "" });
     }
     console.log(responseData);
     navigate("/home");

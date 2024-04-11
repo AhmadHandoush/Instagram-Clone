@@ -23,9 +23,16 @@ function Signup() {
       body: JSON.stringify(formData),
     });
 
-    const data = response.json();
+    const res = await response.json();
 
-    navigate("/");
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
+    if (res.status === "success") {
+      navigate("/");
+    }
   };
   return (
     <div className="signup flex-center">
