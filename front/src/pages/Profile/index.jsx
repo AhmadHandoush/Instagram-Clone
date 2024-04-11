@@ -3,11 +3,26 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./profile.css";
 function Profile() {
+  const [user, setUser] = useState({});
+  const {id,name,email,picture=user;
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
+  }, []);
+  useEffect(() => {
+    const get_data = async () => {
+      const response = await fetch("http://127.0.0.1:8000/api/user/18", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      const data = await response.json();
+      setUser(data);
+      console.log(data);
+    };
+    get_data();
   }, []);
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,7 +33,7 @@ function Profile() {
     data.append("profile_image", imageData);
     axios({
       method: "post",
-      url: "http://127.0.0.1:8000/api/",
+      url: "http://127.0.0.1:8000/api/update/",
       data: data,
       headers: {
         "Content-Type": "multipart/form-data",
@@ -43,7 +58,7 @@ function Profile() {
       setImage(reader.result);
     };
   }
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [imageData, setimageData] = useState();
   const [image, setImage] = useState();
 
@@ -73,7 +88,7 @@ function Profile() {
             type="text"
             placeholder="Username"
             name="name"
-            value={name}
+            value={username}
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="im"> + Change image</label>
